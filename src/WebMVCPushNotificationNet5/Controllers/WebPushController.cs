@@ -53,7 +53,11 @@ namespace WebMVCPushNotificationNet5.Controllers
 
         public IActionResult GenerateKeys()
         {
+            VapidHelper.ValidateSubject("mailto:massimo.dovere@gmail.com");
             var keys = VapidHelper.GenerateVapidKeys();
+            VapidHelper.ValidatePublicKey(keys.PublicKey);
+            VapidHelper.ValidatePrivateKey(keys.PrivateKey);
+
             ViewBag.PublicKey = keys.PublicKey;
             ViewBag.PrivateKey = keys.PrivateKey;
             return View();

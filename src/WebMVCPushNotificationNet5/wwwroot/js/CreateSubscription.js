@@ -1,6 +1,6 @@
 ﻿//var applicationServerPublicKey = '';
 var serviceWorkerScope = '/workers/';
-var serviceWorker = '/workers/sw.js';
+var serviceWorker = '/workers/server-worker.js';
 var isSubscribed = false;
 
 $(document).ready(function () {
@@ -24,7 +24,7 @@ $(document).ready(function () {
 
 function initialiseServiceWorker() {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(serviceWorker, { scope: serviceWorkerScope}).then(handleSWRegistration);
+        navigator.serviceWorker.register(serviceWorker).then(handleSWRegistration);
     } else {
         errorHandler('[initialiseServiceWorker] Service workers are not supported in this browser.');
     }
@@ -75,30 +75,30 @@ function initialiseState(reg) {
 }
 
 function subscribe() {
-    navigator.serviceWorker.ready.then(function (reg) {
-        var subscribeParams = { userVisibleOnly: true };
-
-        //Setting the public key of our VAPID key pair.
-        var applicationServerKey = urlB64ToUint8Array(window.applicationServerPublicKey);
-        subscribeParams.applicationServerKey = applicationServerKey;
-
-        reg.pushManager.subscribe(subscribeParams)
-            .then(function (subscription) {
-                isSubscribed = true;
-
-                var p256dh = base64Encode(subscription.getKey('p256dh'));
-                var auth = base64Encode(subscription.getKey('auth'));
-
-                console.log(subscription);
-
-                $('#Endpoint').val(subscription.endpoint);
-                $('#P256DH').val(p256dh);
-                $('#Auth').val(auth);
+    navigator.serviceWorker.getRegistration(serviceWorkerScope)
+        .then(function (serviceWorker) {
+            //Setting the public key of our VAPID key pair.
+            serviceWorker.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: urlB64ToUint8Array(window.applicationServerPublicKey)
             })
-            .catch(function (e) {
-                errorHandler('[subscribe] Unable to subscribe to push', e);
-            });
-    });
+                .then(function (subscription) {
+                    isSubscribed = true;
+
+                    var p256dh = base64Encode(subscription.getKey('p256dh'));
+                    var auth = base64Encode(subscription.getKey('auth'));
+
+                    console.log(subscription);
+
+                    $('#Endpoint').val(subscription.endpoint);
+                    $('#P256DH').val(p256dh);
+                    $('#Auth').val(auth);
+
+                })
+                .catch(function (e) {
+                    errorHandler('[subscribe] Unable to subscribe to push', e);
+                });
+        });
 }
 
 function errorHandler(message, e) {
