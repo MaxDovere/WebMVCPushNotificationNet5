@@ -1,0 +1,69 @@
+﻿@model WebMVCPushNotificationNet5.Models.Subscriptions
+@section Scripts
+{
+    <script src="@Url.Content("~/js/CreateSubscription.js")"></script>
+}
+
+@{
+    ViewData["Title"] = "Create Subscription";
+}
+
+<h2>Add Subscriptions</h2>
+<hr />
+<div class="row">
+    <div class="alert alert-info">
+        <strong>Developer Notes:</strong>
+        <ul>
+            <li>You can find the logic for registering a device in wwwroot/js/CreateSubscription.js</li>
+            <li>ServiceWorkers on chrome will only work on sites with ssl enabled or local webservers.</li>
+            <li>Microsoft Edge requires enabling service workers.</li>
+        </ul>
+    </div>
+    <div class="alert alert-danger" style="display: none;">
+        <strong>Error:</strong>
+        <ul id="errorMessage"></ul>
+    </div>
+
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="width:500px">
+                <label asp-for="SubscriptionName" class="control-label"></label>
+                <input asp-for="SubscriptionName" class="form-control" required />
+                <span asp-validation-for="SubscriptionName" class="text-danger"></span>
+            </div>
+            <div class="well" style="width: 500px;">
+                <h4>Web Push Details</h4>
+                <span style="font-size: 12px;">These values will automatically become populated once correct permissions are given by the browser.</span>
+                <hr/>
+                <div class="form-group">
+                    <label asp-for="Endpoint" class="control-label"></label>
+                    <input asp-for="Endpoint" class="form-control" readonly required/>
+                    <span asp-validation-for="Endpoint" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="P256DH" class="control-label"></label>
+                    <input asp-for="P256DH" class="form-control" readonly required/>
+                    <span asp-validation-for="P256DH" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Auth" class="control-label"></label>
+                    <input asp-for="Auth" class="form-control" readonly required/>
+                    <span asp-validation-for="Auth" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="GetAll">Back to List</a>
+</div>
+
+<script>
+    //Vapid public key.
+    var applicationServerPublicKey = '@ViewBag.PublicKey';
+</script>

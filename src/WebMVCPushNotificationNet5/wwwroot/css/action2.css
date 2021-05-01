@@ -1,0 +1,42 @@
+
+        html {
+          min-height: 100%;
+          position: relative;
+        }
+
+        body {
+            margin-bottom: 60px;
+        }
+
+        .crm-nav-anchor {
+            padding-right: 34px;
+            background-image: url(/content/images/action-white.png);
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: auto 32px;
+        }
+
+        #footer {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            height: 60px;
+            width: 100%
+        }
+        #footer p {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .fixed {
+            position: fixed;
+            top:0; left:0;
+            width: 100%;
+            z-index: 999;
+        }
+        .sticky,.sticky2 {
+            z-index: 500;
+        }
+
+    

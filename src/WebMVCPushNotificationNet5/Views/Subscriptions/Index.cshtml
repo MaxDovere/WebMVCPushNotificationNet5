@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebMVCPushNotificationNet5.Models.Subscriptions>
+
+@{
+    ViewData["Title"] = "Subscriptions";
+}
+
+<div class="col-md-6">
+    <div class="panel action-type-holder panel-primary" data-actiontypeid="NEW">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;&nbsp;<span>Registered Subscriptions</span>  <span class="badge" style="float: right;">@Model.Count()</span></h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <a asp-action="GetAll" data-toggle="modal">
+                    <span class="glyphicon glyphicon-star"></span> Subscriptions
+
+                    <span class="badge" style="float: right;">@Model.Count()</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<WebMVCPushNotificationNet5.Models.Subscriptions>
+
+@{
+    ViewData["Title"] = "Registered Subscriptions";
+}
+
+<div class="col-sm-6">
+    <h2>Registered Subscriptions</h2>
+</div>
+<div class="col-sm-6">
+    <div class="pull-right" style="margin-top: 15px;">
+        <a asp-action="Create" class="btn btn-primary">Add Subscriptions</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-condensed small" id="activityList">
+            <thead>
+                <tr>
+                    <th style="width:20px;"></th>
+                    <th></th>
+                    <th>@Html.DisplayNameFor(model => model.SubscriptionName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Endpoint)</th>
+                    <th>@Html.DisplayNameFor(model => model.P256DH)</th>
+                    <th>@Html.DisplayNameFor(model => model.Auth)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="background-color: transparent;">&nbsp;</td>
+                        <td class="text-center">
+                        </td>
+                        <td class="text-center">
+                            <p><span class="item-check-if-locked" data-tablekey-id="@Html.DisplayFor(modelItem => item.SubscriptionId)"></span></p>
+                        </td>
+                        <td class="text-center">
+                            <div class="lead" style="margin-bottom: 4px;"></div>
+                            <div style="margin-bottom: 8px;">
+                                @Html.DisplayFor(modelItem => item.SubscriptionName)
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <div class="text-muted" style="margin-top: 20px;">
+                                @Html.DisplayFor(modelItem => item.P256DH)
+                            </div>
+                        </td>
+                        <td class="text-primary text-right"><span class="glyphicon glyphicon-globe"></span></td>
+                        <td>
+                            <div>@Html.DisplayFor(modelItem => item.Auth)</div>
+                        </td>
+                        <td>
+                            <a asp-controller="WebPush" asp-action="Send" asp-route-id="@item.SubscriptionId">Send</a> |
+                            <a asp-action="Delete" asp-route-id="@item.SubscriptionId">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+                @if (Model.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="5" style="text-align: center; font-weight: bold;">
+                            No subscriptions registered yet.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to Home</a>
+</div>

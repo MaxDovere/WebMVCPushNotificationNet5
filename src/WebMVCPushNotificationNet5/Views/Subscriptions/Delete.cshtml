@@ -1,0 +1,44 @@
+﻿@model WebMVCPushNotificationNet5.Models.Subscriptions
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this subscription?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubscriptionName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubscriptionName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endpoint)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endpoint)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.P256DH)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.P256DH)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Auth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Auth)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="SubscriptionId" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="GetAll" class="btn btn-default">Back to List</a>
+    </form>
+</div>
