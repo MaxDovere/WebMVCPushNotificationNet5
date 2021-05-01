@@ -56,6 +56,7 @@
                         </td>
                         <td>
                             <a asp-controller="WebPush" asp-action="Send" asp-route-id="@item.SubscriptionId">Send</a> |
+                            <a asp-controller="WebPush" asp-action="SendWebPush" asp-route-id="@item.SubscriptionId">SendWebPush</a> |
                             <a asp-action="Delete" asp-route-id="@item.SubscriptionId">Delete</a>
                         </td>
                     </tr>

@@ -1,0 +1,88 @@
+﻿@model WebMVCPushNotificationNet5.Models.Subscriptions
+
+@section Scripts
+{
+    <script src="@Url.Content("~/js/SendNotification.js")"></script>
+}
+@{
+    ViewData["Title"] = "Send";
+}
+<h2>Send Push Message</h2>
+<hr />
+
+<div class="row">
+    <div class="alert alert-info">
+        <strong>Developer Notes:</strong>
+        <ul>
+            <li>You can find the logic for sending a web push notification in Controllers/WebPushController.cs:Send</li>
+            <li>The Payload Generation Helper fields below are not sent to the web push api. They are simply used to generate the json payload which will be sent.</li>
+            <li>Client side code for handling push notifications can be found at wwwroot/sw.js</li>
+            <li>You can include any data in your payload, as long as your sw.js handles it.</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <div class="well" style="width: 500px;">
+            <h4>Payload Generation Helper</h4>
+            <span style="font-size: 12px;">Type your Title and Message and your payload will be generated below.</span>
+            <hr />
+            <div class="form-group">
+                <label class="control-label" for="Title">Title</label>
+                <select id="Title" class="custom-select d-block w-100">
+                    <option data-id="0" value="Notification title">Short sentence (LTR)</option>
+                    <option data-id="1" value="כותרת הודעה">Short sentence (RTL)</option>
+                    <option data-id="2" value="Hamburgers: the cornerstone of any nutritious breakfast. Ch-cheeseburgers.">Long sentence (LTR)</option>
+                    <option data-id="3" value="המבורגרים: אבן הפינה של כל ארוחת בוקר מזינה. צ'יזבורגר">Long sentence (RTL)</option>
+                    <option data-id="4" value="sshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh">Repetitive characters (LTR)</option>
+                    <option data-id="5" value="שששששששששששששששששששששששששששששששששששששששששששששששששששש">Repetitive characters (RTL)</option>
+                    <option data-id="6" value="😁🚒❤😹🙋⌛❇🚅☎☺">Unicode smileys</option>
+                    <option data-id="7" value="">Empty</option>
+                    <!--option data-custom value="custom">Custom</option-->
+                </select>
+                <!--input class="form-control" type="text" id="Title" name="Title" value=""-->
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Message">Message</label>
+                <input class="form-control" type="text" id="Message" name="Message" value="">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Image" not-implemented title="Not yet standardized. Proposed at https://github.com/whatwg/notifications/issues/79">Image</label>
+                <select id="Image" class="custom-select d-block w-100">
+                    <option data-id="0" value="">No image</option>
+                    <option data-id="1" value="/assets/Superman.jpg">Superman photo</option>
+                    <!--option data-custom value="custom">Custom</option-->
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Icon">Icon</label>
+                <select id="Icon" class="custom-select d-block w-100">
+                    <option data-id="0" value="/assets/icons/4.png">Normal PNG icon (256x256)</option>
+                    <option data-id="1" value="/assets/icons/15.jpg">Normal JPEG icon (256x256)</option>
+                    <option data-id="2" value="/assets/icons/16.gif">Static GIF icon (256x256)</option>
+                    <option data-id="3" value="/assets/icons/19.gif">Animated GIF icon (256x256)</option>
+                    <option data-id="4" value="">---------------</option>
+                    <option data-id="5" value="/assets/icons/17.png">Tiny icon (PNG, 32x32)</option>
+                    <option data-id="6" value="/assets/icons/18.png">Huge icon (PNG, 3333x5230)</option>
+                    <option data-id="7" value="">No icon</option>
+                    <!--option-- data-custom value="custom">Custom</!--option-->
+                </select>
+                <!--input class="form-control" type="text" id="Message" name="Message" value=""-->
+            </div>
+        </div>
+        
+        <form asp-action="SendWebPush">
+            <input type="hidden" asp-for="SubscriptionId"/>
+            <div class="form-group">
+                <label class="control-label" for="Payload">Payload</label>
+
+                <textarea id="Payload" name="Payload" style="width: 500px; height: 200px;"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Send Push" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Subscriptions" asp-action="GetAll">Back to List</a>
+</div>

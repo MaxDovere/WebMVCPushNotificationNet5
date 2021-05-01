@@ -13,10 +13,12 @@
 
     var title = data.title;
     var message = data.message;
-    var icon = "images/icon-512.png";
+    var image = data.image;
+    var icon = data.icon; //"./images/icon-512.png";
     
     event.waitUntil(self.registration.showNotification(title, {
         body: message,
+        image: image,
         icon: icon,
         badge: icon
     }));

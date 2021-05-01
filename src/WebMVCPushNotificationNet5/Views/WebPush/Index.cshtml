@@ -1,0 +1,299 @@
+﻿
+<!--@{
+// ViewData["Title"] = "Notification Page";
+
+//var message = ViewData["message"];
+}
+<br />
+<br />
+<div class="container">
+
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="~/img/icon-512.png" alt="" width="72" height="72">
+        <h2>Notification form</h2>
+        <p class="lead">View to Notification form, options to subscribe and push notification send message</p>
+    </div>
+
+    <div class="row">-->-->
+        @*<div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your cart</span>
+                    <span class="badge badge-secondary badge-pill">3</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Product name</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$12</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Second product</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$8</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Third item</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$5</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div class="text-success">
+                            <h6 class="my-0">Promo code</h6>
+                            <small>EXAMPLECODE</small>
+                        </div>
+                        <span class="text-success">-$5</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total (USD)</span>
+                        <strong>$20</strong>
+                    </li>
+                </ul>
+
+                <form class="card p-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Promo code">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-secondary">Redeem</button>
+                        </div>
+                    </div>
+                </form>
+            </div>*@
+        <!--<div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Visual setting</h4>
+            <form asp-controller="Notification" asp-action="SendMessage" class="needs-validation" enctype="multipart/form-data" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="title">Title</label>
+                        <select asp-for="message.Title" id="title" class="custom-select d-block w-100">
+                            <option data-id="0" value="Notification title">Short sentence (LTR)</option>
+                            <option data-id="1" value="כותרת הודעה">Short sentence (RTL)</option>
+                            <option data-id="2" value="Hamburgers: the cornerstone of any nutritious breakfast. Ch-cheeseburgers.">Long sentence (LTR)</option>
+                            <option data-id="3" value="המבורגרים: אבן הפינה של כל ארוחת בוקר מזינה. צ'יזבורגר">Long sentence (RTL)</option>
+                            <option data-id="4" value="sshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh">Repetitive characters (LTR)</option>
+                            <option data-id="5" value="שששששששששששששששששששששששששששששששששששששששששששששששששששש">Repetitive characters (RTL)</option>
+                            <option data-id="6" value="😁🚒❤😹🙋⌛❇🚅☎☺">Unicode smileys</option>
+                            <option data-id="7" value="">Empty</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="text" class="form-control" id="title_custom" placeholder="" style="display: none;" value="" required>
+                        <div class="invalid-feedback">
+                            Valid title is required.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="body">Body</label>
+                        <select id="body" class="custom-select d-block w-100">
+                            <option data-id="0" value="Notification content">One sentence (LTR)</option>
+                            <option data-id="1" value="תוכן הודעה">One sentence (RTL)</option>
+                            <option data-id="2" value="This is the notification's message. It may be able to stretch over multiple lines, or become visible when the notification is expanded by the user, depending on the notification center that's being used.">Multiple sentences (LTR)</option>
+                            <option data-id="3" value="זהו המסר של ההודעה. זה עשוי להיות מסוגל למתוח על קווים מרובים, או להיות גלוי, כאשר ההודעה מורחבת על ידי המשתמש, בהתאם להודעה שהמרכז נמצא בשימוש">Multiple sentences (RTL)</option>
+                            <option data-id="4" value="sshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh">Repetitive characters (LTR)</option>
+                            <option data-id="5" value="ששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששש">Repetitive characters (RTL)</option>
+                            <option data-id="6" value="🌇😃🍈😆🍜🍻😋⛅⛳😚">Unicode smileys</option>
+                            <option data-id="7" value="">Empty</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="text" class="form-control" id="body_custom" placeholder="" style="display: none;" value="" required>
+                        <div class="invalid-feedback">
+                            Valid body is required.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="direction" not-implemented title="Not implemented by Chrome.">Direction</label>
+                        <select id="direction" class="custom-select d-block w-100">
+                            <option data-id="0" value="ltr">Left-to-right</option>
+                            <option data-id="1" value="rtl">Right-to-left</option>
+                            <option data-id="2" value="auto">Auto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="image" not-implemented title="Not yet standardized. Proposed at https://github.com/whatwg/notifications/issues/79">Image</label>
+                        <select id="image" class="custom-select d-block w-100">
+                            <option data-id="0" value="">No image</option>
+                            <option data-id="1" value="/assets/Superman.jpg">Superman photo (JPEG, 3072x1728)</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="email" class="form-control" id="image_custom" style="display: none;" placeholder="image">
+                        <div class="invalid-feedback">
+                            Please enter a valid image.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="icon">Icon</label>
+                        <select id="icon" class="custom-select d-block w-100">
+                            <option data-id="0" value="/assets/icons/4.png">Normal PNG icon (256x256)</option>
+                            <option data-id="1" value="/assets/icons/15.jpg">Normal JPEG icon (256x256)</option>
+                            <option data-id="2" value="/assets/icons/16.gif">Static GIF icon (256x256)</option>
+                            <option data-id="3" value="/assets/icons/19.gif">Animated GIF icon (256x256)</option>
+                            <option data-id="4" value="">---------------</option>
+                            <option data-id="5" value="/assets/icons/17.png">Tiny icon (PNG, 32x32)</option>
+                            <option data-id="6" value="/assets/icons/18.png">Huge icon (PNG, 3333x5230)</option>
+                            <option data-id="7" value="">No icon</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="text" class="form-control" id="icon_custom" placeholder="icon" style="display: none;" required>
+                        <div class="invalid-feedback">
+                            Please enter one type icon.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="badge">Badge</label>
+                        <select id="badge" class="custom-select d-block w-100">
+                            <option data-id="0" value="/assets/icons/11.png">Cat icon</option>
+                            <option data-id="1" value="">No icon</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="text" class="form-control" id="badge_custom" placeholder="icon" style="display: none;" required>
+                    </div>
+                </div>
+                <h4 class="mb-3">Behavioral setting</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="tag">Tag</label>
+                        <select id="tag" class="custom-select d-block w-100">
+                            <option data-id="0" value="">No tag</option>
+                            <option data-id="1" value="tag-1">tag-1</option>
+                            <option data-id="2" value="tag-2">tag-2</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid Tag.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" checked class="custom-control-input" id="persistent">
+                            <label class="custom-control-label" for="persistent">Persistent</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="vibrate" not-implemented title="Not implemented by Firefox.">Vibration</label>-->
+                        <!-- From https://gearside.com/custom-vibration-patterns-mobile-devices/ -->
+                        <!--<select id="vibrate" class="custom-select d-block w-100">
+                            <option data-id="0" value="">No vibration</option>
+                            <option data-id="1" value="10000">Single long buzz</option>
+                            <option data-id="2" value="100,50,100,50,100,50,100,50,100,50,100,50,100,50,100,50,100,50,100,50">Repetitive buzzing</option>
+                            <option data-id="0" value="">---------------</option>
+                            <option data-id="3" value="125,75,125,275,200,275,125,75,125,275,200,600,200,600">Super Mario</option>
+                            <option data-id="4" value="500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500">Star Wars</option>
+                            <option data-id="5" value="100,200,100,100,75,25,100,200,100,500,100,200,100,500">Shave and a Haircut</option>
+                            <option data-id="6" value="0,300,100,50,100,50,100,50,100,50,100,50,100,50,150,150,150,450,100,50,100,50,150,150,150,450,100,50,100,50,150,150,150,450,150,150">Smooth Criminal</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="text" class="form-control" id="vibrate_custom" placeholder="vibrate" style="display: none;" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="timestamp" not-implemented title="Not implemented by Firefox.">Timestamp</label>
+                        <select id="timestamp" class="custom-select d-block w-100">
+                            <option data-id="0" value="">No custom timestamp</option>
+                            <option data-id="1" value="-300000">Five minutes ago</option>
+                            <option data-id="2" value="-604800000">Last week</option>
+                            <option data-id="3" value="+600000">Ten minutes from now</option>
+                            <option data-id="4" value="+86400000">Tomorrow</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="text" class="form-control" id="timestamp_custom" placeholder="timestamp" style="display: none;" required>
+                        <div class="invalid-feedback">
+                            Time stamp required.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="actions" not-implemented title="Not implemented by Firefox.">Actions</label>
+                        <select id="actions" class="custom-select d-block w-100">-->
+                            <!-- values will be interpreted as "button1Title$$button1Icon$$button1Type$$button1placeholder;;button2Title$$button2Icon;;button3Title" etc. -->
+                            <!--<option data-id="0" value="">No actions</option>
+                            <option data-id="1" value="I am a button!$$/resources/icons/11.png">One action (LTR)</option>
+                            <option data-id="2" value="טקסט קצר$$/resources/icons/11.png">One action (RTL)</option>
+                            <option data-id="3" value="Yes$$/resources/icons/11.png;;No$$/resources/icons/14.png">Two actions (LTR)</option>
+                            <option data-id="6" value="Like$$/resources/icons/11.png;;بجلدٍ أزرق$$/resources/icons/14.png">Two actions (LTR, RTL)</option>
+                            <option data-id="7" value="بجلدٍ أزرق$$/resources/icons/11.png;;Like$$/resources/icons/14.png">Two actions (RTL, LTR)</option>
+                            <option data-id="11" value="כֵּן$$/resources/icons/11.png;;לא$$/resources/icons/14.png">Two actions (RTL)</option>
+                            <option data-id="4" value="טקסט קצר$$/resources/icons/11.png;;טקסט זה הוא ארוך עבור לחצן$$/resources/icons/14.png">Two actions (RTL)</option>
+                            <option data-id="5" value="Maybe$$/resources/icons/question.png;;Yes$$/resources/icons/check.png;;No$$/resources/icons/cross.png">Three actions</option>
+                            <option data-id="14" value="👍 Like;;¯\\_(ツ)_/¯">Two actions (unicode)</option>
+                            <option data-id="8" value="😸😁😂😱🙈">One action (emoticons, no icon)</option>
+                            <option data-id="9" value="No icon">One action (no icon)</option>
+                            <option data-id="10" value="$$/resources/icons/11.png">One action (empty title)</option>
+                            <option data-id="12" value="Reply$$/resources/icons/11.png$$text">One action (type text)</option>
+                            <option data-id="13" value="Reply$$/resources/icons/11.png$$text$$Placeholder">One action (type text with placeholder)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="silent" not-implemented title="Not implemented by Firefox.">Silent</label>
+                        <input type="checkbox" class="form-control" id="silent" placeholder="silent">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="renotify" not-implemented title="Not implemented by Firefox.">Renotify</label>
+                        <input type="checkbox" class="form-control" id="renotify" placeholder="renotify">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="require_interaction" not-implemented title="Not implemented by Firefox.">Req. interaction</label>
+                        <input type="checkbox" class="form-control" id="require_interaction" placeholder="require_interaction">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="notification_close_event" not-implemented title="Not implemented by Firefox.">Notification Close event</label>
+                        <input type="checkbox" class="form-control" id="notification_close_event" placeholder="notification_close_event">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="show_trigger" not-implemented title="Not yet standardized. Proposed at https://github.com/beverloo/notification-triggers">Show Trigger</label>
+                        <select id="show_trigger" class="custom-select d-block w-100">
+                            <option data-id="0" value="">No show trigger</option>
+                            <option data-id="1" value="5000">Five seconds from now</option>
+                            <option data-id="2" value="60000">One minute from now</option>
+                            <option data-custom value="custom">Custom</option>
+                        </select>
+                        <input type="text" class="form-control" id="show_trigger_custom" placeholder="show trigger custom" style="display: none;">
+                    </div>
+                </div>
+                <h4 class="mb-3">Reaction settings</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="action">Action</label>
+                        <select id="action" class="custom-select d-block w-100">
+                            <option data-id="0" value="default">Focus or open a new window.</option>
+                            <option data-id="1" value="focus-only">Only try to focus.</option>
+                            <option data-id="2" value="open-only">Only open a new window.</option>
+                            <option data-id="5" value="open-only-tel">Only open a new window (tel:).</option>
+                            <option data-id="6" value="open-only-mailto">Only open a new window (mailto:).</option>
+                            <option data-id="3" value="message">Display an alert().</option>
+                            <option data-id="4" value="nothing">Do nothing.</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="close">Close it?</label>
+                        <input type="checkbox" class="form-control" id="close" placeholder="close" checked>
+                    </div>
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Send Push Notification</button>
+                    <p>
+                        <button id="action-reset" class="btn btn-primary btn-lg btn-block">Reset</button>
+                        <button id="action-display" class="btn btn-primary btn-lg btn-block">Display the notification</button>
+                        <button id="action-get-displayed" class="btn btn-primary btn-lg btn-block">Get displayed notifications</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->
