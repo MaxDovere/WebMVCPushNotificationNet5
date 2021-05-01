@@ -1,5 +1,6 @@
 ﻿//var applicationServerPublicKey = '';
-var serviceWorker = '/sw.js';
+var serviceWorkerScope = '/workers/';
+var serviceWorker = '/workers/sw.js';
 var isSubscribed = false;
 
 $(document).ready(function () {
@@ -23,7 +24,7 @@ $(document).ready(function () {
 
 function initialiseServiceWorker() {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(serviceWorker).then(handleSWRegistration);
+        navigator.serviceWorker.register(serviceWorker, { scope: serviceWorkerScope}).then(handleSWRegistration);
     } else {
         errorHandler('[initialiseServiceWorker] Service workers are not supported in this browser.');
     }
