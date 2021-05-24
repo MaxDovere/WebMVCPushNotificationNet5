@@ -63,11 +63,12 @@ namespace WebMVCPushNotificationNet5.Controllers
             var payload = Request.Form["payload"];
             var subscription = await _context.Subscriptions.SingleOrDefaultAsync(m => m.SubscriptionId == id);
 
+            string vapidSubject = _configuration.GetSection("VapidKeys")["Subject"];
             string vapidPublicKey = _configuration.GetSection("VapidKeys")["PublicKey"];
             string vapidPrivateKey = _configuration.GetSection("VapidKeys")["PrivateKey"];
 
             var pushSubscription = new PushSubscription(subscription.Endpoint, subscription.P256DH, subscription.Auth);
-            var vapidDetails = new VapidDetails("mailto:massimo.dovere@gmail.com", vapidPublicKey, vapidPrivateKey);
+            var vapidDetails = new VapidDetails(vapidSubject, vapidPublicKey, vapidPrivateKey);
 
             try
             {

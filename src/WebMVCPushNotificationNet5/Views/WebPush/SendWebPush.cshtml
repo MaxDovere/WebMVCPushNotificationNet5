@@ -20,67 +20,218 @@
             <li>You can include any data in your payload, as long as your sw.js handles it.</li>
         </ul>
     </div>
-    <div class="col-md-4">
-        <div class="well" style="width: 500px;">
-            <h4>Payload Generation Helper</h4>
-            <span style="font-size: 12px;">Type your Title and Message and your payload will be generated below.</span>
-            <hr />
-            <div class="form-group">
-                <label class="control-label" for="Title">Title</label>
-                <select id="Title" class="custom-select d-block w-100">
-                    <option data-id="0" value="Notification title">Short sentence (LTR)</option>
-                    <option data-id="1" value="כותרת הודעה">Short sentence (RTL)</option>
-                    <option data-id="2" value="Hamburgers: the cornerstone of any nutritious breakfast. Ch-cheeseburgers.">Long sentence (LTR)</option>
-                    <option data-id="3" value="המבורגרים: אבן הפינה של כל ארוחת בוקר מזינה. צ'יזבורגר">Long sentence (RTL)</option>
-                    <option data-id="4" value="sshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh">Repetitive characters (LTR)</option>
-                    <option data-id="5" value="שששששששששששששששששששששששששששששששששששששששששששששששששששש">Repetitive characters (RTL)</option>
-                    <option data-id="6" value="😁🚒❤😹🙋⌛❇🚅☎☺">Unicode smileys</option>
-                    <option data-id="7" value="">Empty</option>
-                    <!--option data-custom value="custom">Custom</option-->
-                </select>
-                <!--input class="form-control" type="text" id="Title" name="Title" value=""-->
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="Message">Message</label>
-                <input class="form-control" type="text" id="Message" name="Message" value="">
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="Image" not-implemented title="Not yet standardized. Proposed at https://github.com/whatwg/notifications/issues/79">Image</label>
-                <select id="Image" class="custom-select d-block w-100">
-                    <option data-id="0" value="">No image</option>
-                    <option data-id="1" value="/assets/Superman.jpg">Superman photo</option>
-                    <!--option data-custom value="custom">Custom</option-->
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="Icon">Icon</label>
-                <select id="Icon" class="custom-select d-block w-100">
-                    <option data-id="0" value="/assets/icons/4.png">Normal PNG icon (256x256)</option>
-                    <option data-id="1" value="/assets/icons/15.jpg">Normal JPEG icon (256x256)</option>
-                    <option data-id="2" value="/assets/icons/16.gif">Static GIF icon (256x256)</option>
-                    <option data-id="3" value="/assets/icons/19.gif">Animated GIF icon (256x256)</option>
-                    <option data-id="4" value="">---------------</option>
-                    <option data-id="5" value="/assets/icons/17.png">Tiny icon (PNG, 32x32)</option>
-                    <option data-id="6" value="/assets/icons/18.png">Huge icon (PNG, 3333x5230)</option>
-                    <option data-id="7" value="">No icon</option>
-                    <!--option-- data-custom value="custom">Custom</!--option-->
-                </select>
-                <!--input class="form-control" type="text" id="Message" name="Message" value=""-->
-            </div>
-        </div>
-        
-        <form asp-action="SendWebPush">
-            <input type="hidden" asp-for="SubscriptionId"/>
-            <div class="form-group">
-                <label class="control-label" for="Payload">Payload</label>
-
-                <textarea id="Payload" name="Payload" style="width: 500px; height: 200px;"></textarea>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Send Push" class="btn btn-primary"/>
-            </div>
-        </form>
+</div>
+<div class="row">
+    <div class="well">
+        <h4>Payload Generation Helper</h4>
     </div>
+</div>
+<div class="col-md-6">
+    <div class="panel action-type-holder panel-primary" data-actiontypeid="NEW">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;&nbsp;<span>Visual settings</span></h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <div class="form-group">
+                    <label class="control-label" for="title">Title</label>
+                    <span style="font-size: 12px;">Type your Title and Message and your payload will be generated below.</span>
+                    <select id="title" class="custom-select d-block w-100">
+                        <option data-id="0" value="Notification title">Short sentence (LTR)</option>
+                        <option data-id="1" value="כותרת הודעה">Short sentence (RTL)</option>
+                        <option data-id="2" selected value="Hamburgers: the cornerstone of any nutritious breakfast. Ch-cheeseburgers.">Long sentence (LTR)</option>
+                        <option data-id="3" value="המבורגרים: אבן הפינה של כל ארוחת בוקר מזינה. צ'יזבורגר">Long sentence (RTL)</option>
+                        <option data-id="4" value="sshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh">Repetitive characters (LTR)</option>
+                        <option data-id="5" value="שששששששששששששששששששששששששששששששששששששששששששששששששששש">Repetitive characters (RTL)</option>
+                        <option data-id="6" value="😁🚒❤😹🙋⌛❇🚅☎☺">Unicode smileys</option>
+                        <option data-id="7" value="">Empty</option>
+                        <option data-custom value="custom">Custom</option>
+                    </select>
+                    <input class="form-control" type="text" id="title_custom" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="url_custom">Url</label>
+                    <input class="form-control" id="url_custom" type="text" value="https://localhost:44375/Subscriptions/Delete/30"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="body">Body</label>
+                    <select id="body" class="custom-select d-block w-100">
+                        <option data-id="0" value="Notification content">One sentence (LTR)</option>
+                        <option data-id="1" value="תוכן הודעה">One sentence (RTL)</option>
+                        <option data-id="2" selected value="This is the notification's message. It may be able to stretch over multiple lines, or become visible when the notification is expanded by the user, depending on the notification center that's being used.">Multiple sentences (LTR)</option>
+                        <option data-id="3" value="זהו המסר של ההודעה. זה עשוי להיות מסוגל למתוח על קווים מרובים, או להיות גלוי, כאשר ההודעה מורחבת על ידי המשתמש, בהתאם להודעה שהמרכז נמצא בשימוש">Multiple sentences (RTL)</option>
+                        <option data-id="4" value="sshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh">Repetitive characters (LTR)</option>
+                        <option data-id="5" value="ששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששש">Repetitive characters (RTL)</option>
+                        <option data-id="6" value="🌇😃🍈😆🍜🍻😋⛅⛳😚">Unicode smileys</option>
+                        <option data-id="7" value="">Empty</option>
+                        <option data-custom value="custom">Custom</option>
+                    </select>
+                    <input class="form-control" type="text" id="body_custom" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="image">Image</label>
+                    <select id="image" class="custom-select d-block w-100">
+                        <option data-id="0" value="">No image</option>
+                        <option data-id="1" selected value="/assets/Superman.jpg">Superman photo</option>
+                        <option data-custom value="custom">Custom</option>
+                    </select>
+                    <input class="form-control" id="image_custom" type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="icon">Icon</label>
+                    <select id="icon" class="custom-select d-block w-100">
+                        <option data-id="0" value="/assets/icons/4.png">Normal PNG icon (256x256)</option>
+                        <option data-id="1" value="/assets/icons/15.jpg">Normal JPEG icon (256x256)</option>
+                        <option data-id="2" value="/assets/icons/16.gif">Static GIF icon (256x256)</option>
+                        <option data-id="3" value="/assets/icons/19.gif">Animated GIF icon (256x256)</option>
+                        <option data-id="4" value="">---------------</option>
+                        <option data-id="5" value="/assets/icons/17.png">Tiny icon (PNG, 32x32)</option>
+                        <option data-id="6" selected value="/assets/icons/18.png">Huge icon (PNG, 3333x5230)</option>
+                        <option data-id="7" value="">No icon</option>
+                        <option data-custom value="custom">Custom</option>
+                    </select>
+                    <input class="form-control" type="text" id="icon_custom" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="badge">Badge</label>
+                    <select id="badge" class="custom-select d-block w-100">
+                        <option data-id="0" selected value="/assets/icons/11.png">Cat icon</option>
+                        <option data-id="1" value="">No icon</option>
+                        <option data-custom value="custom">Custom</option>
+                    </select>
+                    <input class="form-control" id="badge_custom" type="text" />
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel action-type-holder panel-primary" data-actiontypeid="NEW">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;&nbsp;<span>Behavioral settings</span></h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <div class="form-group">
+                    <label class="control-label" for="persistent">Persistent</label>
+                    <input class="form-control" type="checkbox" checked id="persistent" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="tag">Tag</label>
+                    <select class="custom-select d-block w-100" id="tag">
+                        <option data-id="0" value="">No tag</option>
+                        <option data-id="1" selected value="tag-1">tag-1</option>
+                        <option data-id="2" value="tag-2">tag-2</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="vibrate" not-implemented title="Not implemented by Firefox.">Vibration</label>
+                    <select class="custom-select d-block w-100" id="vibrate">
+                        <option data-id="0" value="">No vibration</option>
+                        <option data-id="1" value="10000">Single long buzz</option>
+                        <option data-id="2" selected value="100,50,100,50,100,50,100,50,100,50,100,50,100,50,100,50,100,50,100,50">Repetitive buzzing</option>
+                        <option data-id="0" value="">---------------</option>
+                        <option data-id="3" value="125,75,125,275,200,275,125,75,125,275,200,600,200,600">Super Mario</option>
+                        <option data-id="4" value="500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500">Star Wars</option>
+                        <option data-id="5" value="100,200,100,100,75,25,100,200,100,500,100,200,100,500">Shave and a Haircut</option>
+                        <option data-id="6" value="0,300,100,50,100,50,100,50,100,50,100,50,100,50,150,150,150,450,100,50,100,50,150,150,150,450,100,50,100,50,150,150,150,450,150,150">Smooth Criminal</option>
+                        <option data-custom value="custom">Custom</option>
+                    </select>
+                    <input class="form-control" id="vibrate_custom" type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="timestamp" not-implemented title="Not implemented by Firefox.">Timestamp</label>
+                    <select class="custom-select d-block w-100" id="timestamp">
+                        <option data-id="0" selected value="">No custom timestamp</option>
+                        <option data-id="1" value="-300000">Five minutes ago</option>
+                        <option data-id="2" value="-604800000">Last week</option>
+                        <option data-id="3" value="+600000">Ten minutes from now</option>
+                        <option data-id="4" value="+86400000">Tomorrow</option>
+                        <option data-custom value="custom">Custom</option>
+                    </select>
+                    <input class="form-control" id="timestamp_custom" type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="actions" not-implemented title="Not implemented by Firefox.">Actions</label>
+                    <select class="custom-select d-block w-100" id="actions">
+                        <!-- values will be interpreted as "button1Title$$button1Icon$$button1Type$$button1placeholder;;button2Title$$button2Icon;;button3Title" etc. -->
+                        <option data-id="0" value="">No actions</option>
+                        <option data-id="1" selected value='[{"action": "Ok", "icon": "/assets/icons/11.png", "title": "I am a button!"}]'>One action (LTR)</option>
+                        <option data-id="2" value='[{"action": "טקסט קצר", "title":"טקסט קצר", "icon":"/assets/icons/11.png"}]'>One action (RTL)</option>
+                        <option data-id="3" value='[{"action": "Yes", "title": "Yes","icon":"/assets/icons/11.png"},{"action": "No", "title": "No", "icon":"/assets/icons/14.png"}]'>Two actions (LTR)</option>
+                        <option data-id="6" value='[{"action": "like", "icon":"/assets/icons/11.png", "title": "Like"}, {"action": "بجلدٍ أزرق", "icon": "/assets/icons/14.png", "title": "بجلدٍ أزرق"}]'>Two actions (LTR, RTL)</option>
+                        <option data-id="7" value='[{"action": "بجلدٍ أزرق", "icon":"/assets/icons/11.png"},{"action"."Like", "icon":"/assets/icons/14.png"}]'>Two actions (RTL, LTR)</option>
+                        <option data-id="11" value='[{"action": "כֵּן", "icon": "/assets/icons/11.png"},{"action": "לא", "icon":"/assets/icons/14.png"}]'>Two actions (RTL)</option>
+                        <option data-id="4" value='[{"action": "טקסט קצר","icon":"/assets/icons/11.png"}, {"action":"טקסט זה הוא ארוך עבור לחצן","icon":"/assets/icons/14.png"}]'>Two actions (RTL)</option>
+                        <option data-id="5" value='[{"action": "Maybe", "title":"Maybe", "icon":"/assets/icons/question.png"},{"action": "Yes", "icon": "/assets/icons/check.png", "title":"No"},{"action":"noAction", "icon":"/assets/icons/cross.png"}]'>Three actions</option>
+                        <option data-id="14" value='[{"action": "👍 Like", "icon": "👍 Like", "title": "¯\\_(ツ)_/¯"}]'>Two actions (unicode)</option>
+                        <option data-id="8" value='[{"action": "😸😁😂😱🙈", "title": "😸😁😂😱🙈"}]'>One action (emoticons, no icon)</option>
+                        <option data-id="9" value='[{"action": "noIcon", "title": "noIcon"}]'>One action (no icon)</option>
+                        <option data-id="10" value='[{"action": "noAction", "title":"noTitle", "icon": "/assets/icons/11.png"}]'>One action (empty title)</option>
+                        <option data-id="12" value='[{"action": "Reply", "icon": "/assets/icons/11.png", "title":"text"}]'>One action (type text)</option>
+                        <option data-id="13" value='[{"action": "Reply", "icon": "/assets/icons/11.png", "title":"Placeholder"}]'>One action (type text with placeholder)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="silent" not-implemented title="Not implemented by Firefox.">Silent</label>
+                    <input class="form-control" type="checkbox" id="silent" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="renotify" not-implemented title="Not implemented by Firefox.">Renotify</label>
+                    <input class="form-control" type="checkbox" checked id="renotify" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="require_interaction" not-implemented title="Not implemented by Firefox.">Req. interaction</label>
+                    <input class="form-control" type="checkbox" checked id="require_interaction" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="notification_close_event" not-implemented title="Not implemented by Firefox.">notificationclose event</label>
+                    <input class="form-control" type="checkbox" checked id="notification_close_event" />
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel action-type-holder panel-primary" data-actiontypeid="NEW">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;&nbsp;<span>Reaction settings</span></h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <div class="form-group">
+                    <label class="control-label" for="action">Action</label>
+                    <select class="custom-select d-block w-100" id="action">
+                        <option data-id="0" value="default">Focus or open a new window.</option>
+                        <option data-id="1" value="focus-only">Only try to focus.</option>
+                        <option data-id="2" value="open-only">Only open a new window.</option>
+                        <option data-id="5" value="open-only-tel">Only open a new window (tel:).</option>
+                        <option data-id="6" selected value="open-only-mailto">Only open a new window (mailto:).</option>
+                        <option data-id="3" value="message">Display an alert().</option>
+                        <option data-id="4" value="nothing">Do nothing.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="close">Close it?</label>
+                    <input class="form-control" type="checkbox" checked id="close" />
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <form asp-action="SendWebPush">
+        <input type="hidden" asp-for="SubscriptionId" />
+        <div class="form-group">
+            <label class="control-label" for="Payload">Payload</label>
+
+            <textarea id="Payload" name="Payload" style="width: 500px; height: 200px;"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Send Push" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
 
 <div>
